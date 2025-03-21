@@ -1,0 +1,60 @@
+.blog-card {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    background: #fff;
+    border-radius: 3px;
+    overflow: hidden;
+     flex-direction: row;
+    transition: transform 0.3s ease-in-out;
+    padding: 20px;
+    gap: 20px; /* Spacing between content and image */
+}
+
+.blog-thumbnail {
+    width: 200px;
+    height: 150px; /* Adjust height to maintain aspect ratio */
+    object-fit: cover;
+    border-left: 4px solid #ddd;
+    border-right: none;
+    flex-shrink: 0; /* Prevents image from shrinking */
+}
+
+.blog-content {
+    flex: 1; /* Takes up remaining space */
+    text-align: left;
+    min-width: 50%; /* Prevents content from shrinking too much */
+}
+
+.blog-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.blog-description {
+    font-size: 1em;
+    margin-bottom: 15px;
+    color: #666;
+}
+
+.blog-date {
+    font-size: 0.9em;
+    color: #999;
+    margin-bottom: 10px;
+}
+
+.read-more {
+    display: inline-block;
+    text-decoration: none;
+    color: #0073e6;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: color 0.3s;
+}
+
+.read-more:hover {
+    color: #005bb5;
+}

@@ -1,0 +1,25 @@
+<div class="carousel">
+    <div class="carousel-inner">
+        <sly data-sly-list.slide="${resource.getChildren}">
+
+            <div class="carousel-item ${slideList.index == 0 ? 'active' : ''}">
+                <img src="${slide.image}" alt="Carousel Image" class="carousel-image"/>
+
+                <div class="carousel-overlay">
+                    <h2 class="carousel-heading">${slide.overlayHeading}</h2>
+                    <p class="carousel-subheading">${slide.overlaySubheading}</p>
+
+                    <sly data-sly-test="${slide.ctaLink}">
+                        <a href="${slide.ctaLink}" class="carousel-cta">${slide.ctaText}</a>
+                    </sly>
+                </div>
+            </div>
+
+        </sly>
+    </div>
+
+    <button class="carousel-control prev" onclick="prevSlide()">&#10094;</button>
+    <button class="carousel-control next" onclick="nextSlide()">&#10095;</button>
+</div>
+
+

@@ -1,0 +1,9 @@
+.blog-meta {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.blog-meta span {
+    color: blue;
+    cursor: pointer;
+}

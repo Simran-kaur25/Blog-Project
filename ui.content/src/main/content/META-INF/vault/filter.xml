@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/conf/blogproject" mode="merge"/>
+    <filter root="/content/blogproject" mode="merge"/>
+    <filter root="/content/dam/blogproject" mode="merge">
+        <exclude pattern="/content/dam/blogproject(/.*)?"/>
+        <include pattern="/content/dam/blogproject/jcr:content(/.*)?"/>
+    </filter>
+    <filter root="/content/dam/blogproject/asset.jpg" mode="merge"/>
+    <filter root="/content/experience-fragments/blogproject" mode="merge"/>
+</workspaceFilter>

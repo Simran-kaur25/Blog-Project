@@ -1,0 +1,40 @@
+<sly data-sly-use.model="com.blog.demo.core.models.PublishedBlogsModel"/>
+<sly data-sly-list.blog="${model.blogs}">
+
+    <div class="blog-card">
+        <!-- Blog Content on the Left -->
+        <div class="blog-content">
+            <!-- Display title -->
+            <sly data-sly-test="${blog.title}">
+                <h3 class="blog-title">${blog.title}</h3>
+            </sly>
+
+            <!-- Display subheading/description -->
+            <sly data-sly-test="${blog.description}">
+                <p class="blog-description">${blog.description}</p>
+            </sly>
+
+            <!-- Display date -->
+            <sly data-sly-test="${blog.date}">
+                <p class="blog-date">${blog.date}</p>
+            </sly>
+
+            <!-- Display link -->
+            <sly data-sly-test="${blog.link}">
+                <a href="${blog.link}" class="read-more">Continue reading</a>
+            </sly>
+        </div>
+
+        <!-- Blog Image on the Right -->
+        <sly data-sly-test="${blog.image}">
+            <img src="${blog.image}" alt="${blog.title}" class="blog-thumbnail"/>
+        </sly>
+    </div>
+
+</sly>
+
+<!-- If no blogs are found, show a message -->
+<sly data-sly-test="${!model.blogs || model.blogs.size == 0}">
+    <p class="no-blogs-message">No blogs found.</p>
+</sly>
+

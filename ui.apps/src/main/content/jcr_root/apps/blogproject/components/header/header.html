@@ -1,0 +1,21 @@
+<header id="header" data-sly-use.headerModel="com.blog.demo.core.models.HeaderModel"
+        data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html">
+
+    <!-- Include CSS -->
+    <sly data-sly-call="${clientLib.css @ categories='clientlib.header'}"></sly>
+
+    <div class="logo">
+        <img src="${headerModel.logoPath @ context='uri'}" alt="Logo">
+        <h2>${headerModel.websiteName}</h2>
+    </div>
+
+    <nav>
+        <ul class="navbar" data-sly-list.menuItem="${headerModel.menuItems}">
+            <sly data-sly-test="${menuItem.hideProp == 'Default'}">
+                <li>
+                    <a href="${menuItem.Link @ context='uri'}">${menuItem.Title}</a>
+                </li>
+            </sly>
+        </ul>
+    </nav>
+</header>

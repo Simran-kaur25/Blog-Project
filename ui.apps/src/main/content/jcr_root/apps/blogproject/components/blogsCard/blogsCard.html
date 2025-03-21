@@ -1,0 +1,44 @@
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"/>
+<sly data-sly-call="${clientlib.css @ categories='clientlib.blogCard'}"/>
+
+<div class="blog-container">
+    <sly data-sly-use.model="com.blog.demo.core.models.PublishedBlogsModel"/>
+    <sly data-sly-list.blog="${model.blogs}">
+        <div class="blog-card">
+            <!-- Blog Image -->
+            <sly data-sly-test="${blog.image}">
+                <div class="blog-thumbnail">
+                    <img src="${blog.image}" alt="${blog.title}" />
+                </div>
+            </sly>
+
+            <!-- Blog Title -->
+            <sly data-sly-test="${blog.title}">
+                <h5 class="blog-title">${blog.title}</h5>
+            </sly>
+
+            <!-- Blog Description -->
+            <sly data-sly-test="${blog.description}">
+                <p class="blog-description">${blog.description}</p>
+            </sly>
+
+            <!-- Blog Date -->
+            <sly data-sly-test="${blog.date}">
+                <p class="blog-date">${blog.date}</p>
+            </sly>
+
+            <!-- Blog Link -->
+            <sly data-sly-test="${blog.link}">
+                <a href="${blog.link}" class="read-more">Continue reading</a>
+            </sly>
+        </div>
+    </sly>
+</div>
+
+<!-- If no blogs are found, show a message -->
+<sly data-sly-test="${!model.blogs || model.blogs.size == 0}">
+    <p class="no-blogs-message">No blogs found.</p>
+</sly>
+
+<sly data-sly-call="${clientlib.js @ categories='clinetlib.blogCard'}"/>
+

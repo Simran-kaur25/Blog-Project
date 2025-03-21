@@ -1,0 +1,22 @@
+<sly data-sly-use.archiveModel="com.blog.demo.core.models.ArchiveModel" />
+
+<div class="archive-container">
+    <h2>Archived Blogs</h2>
+
+    <!-- Debugging: Check if model is null -->
+    <p data-sly-test="${!archiveModel}">Error: Archive Model is NULL. Please check model binding.</p>
+
+    <!-- Debugging: Check if archivedBlogs is null or empty -->
+    <p data-sly-test="${archiveModel && (!archiveModel.archivedBlogs || archiveModel.archivedBlogs.size == 0)}">
+        No archived blogs available. Please check the configured path or published blogs.
+    </p>
+
+    <!-- Display archived blogs if available -->
+    <ul data-sly-test="${archiveModel && archiveModel.archivedBlogs && archiveModel.archivedBlogs.size > 0}">
+        <sly data-sly-list.archive="${archiveModel.archivedBlogs}">
+            <li>
+                <a href="${archive.ArchiveLink @ extension='html'}">${archive.Month}</a>
+            </li>
+        </sly>
+    </ul>
+</div>

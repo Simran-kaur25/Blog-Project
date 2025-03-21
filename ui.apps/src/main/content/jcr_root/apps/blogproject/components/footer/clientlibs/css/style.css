@@ -1,0 +1,61 @@
+.back-to-top {
+    display: flex;
+    justify-content: center;
+}
+
+.back-to-top a {
+    text-decoration: none;
+    padding-bottom: 20px;
+   }
+
+/* Hover for Back to Top */
+.back-to-top a:hover {
+    color: #333; /* Change to a darker shade on hover */
+    text-decoration: none;
+}
+
+/* Footer Section */
+.footer-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+    padding-top: 20px;
+}
+
+/* Footer Links */
+.footer-links {
+    display: flex;       /* Arrange items in a row */
+    gap: 20px;           /* Space between links */
+    padding: 10px 0;     /* Adjust vertical padding as needed */
+    list-style: none;
+    margin: 0;           /* Remove default margins */
+}
+
+.footer-links li {
+    display: inline-block; /* Ensure each item stays inline */
+    margin: 0;             /* Remove margin from list items */
+}
+
+.footer-links a {
+    text-decoration: none; /* Remove underline */
+    padding: 0;            /* Remove any extra padding */
+}
+
+/* Hover for Footer Links */
+.footer-links a:hover {
+    color: #333; /* Change to a darker shade on hover */
+    text-decoration: none;
+}
+
+/* Copyright Text */
+.footer-copyright {
+    margin: 0;             /* Remove any margin */
+    padding-bottom: 10px;
+}
+
+.footer-copyright p {
+    margin: 0;             /* Ensure no extra spacing on paragraph */
+    color: black;          /* Set copyright text color to black */
+}

@@ -1,0 +1,101 @@
+.cmp-carousel__content{
+    position: relative;
+}
+.teaser{
+    position:relative;
+}
+.cmp-teaser{
+    display: flex;
+    justify-content: center;
+}
+.cmp-teaser__content{
+    position: absolute;
+    bottom: 0;
+}
+
+.cmp-teaser__title{
+    font-size: 25px;
+    margin-top: -20px;
+    margin-bottom: 10px;
+    color:white;
+}
+.cmp-teaser__description p{
+    margin-bottom: 50px;
+    text-align: center;
+    color:white;
+}
+
+.cmp-carousel__action{
+    border-radius: 50%;
+    padding: 0 12px;
+    background: transparent;
+    border: none;
+}
+
+.cmp-carousel__action--previous{
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: gray;
+    font-weight: bold;
+    font-size: 100%;
+    transition: 0.6s linear;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    z-index:1;
+}
+.cmp-carousel__action--next{
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: gray;
+    font-weight: bold;
+    font-size: 100%;
+    transition: 0.6s linear;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    right: 0;
+    border-radius: 3px 0 0 3px;
+    z-index:1;
+}
+
+ .cmp-carousel__action--previous:hover, .cmp-carousel__action--next:hover {
+    background-color: rgba(0,0,0,0.8);
+  }
+
+
+.cmp-carousel__action-text{
+    font-weight: bolder;
+    font-size: 25px;
+}
+.cmp-image__image{
+    height:450px;
+    width:1400px;
+}
+
+.cmp-carousel__indicators{
+       position: absolute;
+        left: 47.5%;
+        bottom: 3%;
+}
+.cmp-carousel__indicator{
+            cursor: pointer;
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: #bbb;
+      border-radius: 50%;
+
+      display: inline-block;
+      transition: background-color 0.6s ease;
+}
+
+.cmp-carousel__indicator--active, .cmp-carousel__indicator:hover{
+       background-color: #717171;
+}
