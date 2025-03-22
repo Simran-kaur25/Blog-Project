@@ -1,10 +1,9 @@
+<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html"/>
+<sly data-sly-call="${clientLib.css @ categories='clientlib.archive'}"/>
 <sly data-sly-use.archiveModel="com.blog.demo.core.models.ArchiveModel" />
 
 <div class="archive-container">
     <h2>Archived Blogs</h2>
-
-    <!-- Debugging: Check if model is null -->
-    <p data-sly-test="${!archiveModel}">Error: Archive Model is NULL. Please check model binding.</p>
 
     <!-- Debugging: Check if archivedBlogs is null or empty -->
     <p data-sly-test="${archiveModel && (!archiveModel.archivedBlogs || archiveModel.archivedBlogs.size == 0)}">

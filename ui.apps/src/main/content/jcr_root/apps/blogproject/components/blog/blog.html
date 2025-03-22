@@ -1,15 +1,20 @@
+<!-- Including client library for the blog's CSS -->
+<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html"/>
+<sly data-sly-call="${clientLib.css @ categories='clientlib.blog'}"/>
+
+
 <sly data-sly-use.model="com.blog.demo.core.models.PublishedBlogsModel"/>
 <sly data-sly-list.blog="${model.blogs}">
 
     <div class="blog-card">
-        <!-- Blog Content on the Left -->
+        <!-- Blog Content  -->
         <div class="blog-content">
             <!-- Display title -->
             <sly data-sly-test="${blog.title}">
                 <h3 class="blog-title">${blog.title}</h3>
             </sly>
 
-            <!-- Display subheading/description -->
+            <!-- Display description -->
             <sly data-sly-test="${blog.description}">
                 <p class="blog-description">${blog.description}</p>
             </sly>
@@ -25,7 +30,7 @@
             </sly>
         </div>
 
-        <!-- Blog Image on the Right -->
+        <!-- Blog Image  -->
         <sly data-sly-test="${blog.image}">
             <img src="${blog.image}" alt="${blog.title}" class="blog-thumbnail"/>
         </sly>

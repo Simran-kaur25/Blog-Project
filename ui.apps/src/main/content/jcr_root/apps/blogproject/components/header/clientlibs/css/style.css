@@ -1,7 +1,4 @@
 
-    /* Header */
-
-/* LOGO PART */
 .logo{
     display: flex;
     justify-content: center;
@@ -19,17 +16,8 @@
 }
 
 
-/******* Menu (Hamburger) *******/
-.menu{
-    display:none;
-}
-.menu span{
-    font-size:50px;
-}
 
 
-
-/* NAVBAR */
 .navbar{
     display: flex;
     gap:20px;
@@ -49,4 +37,4 @@ ul{
 }
 .navbar li a:hover {
     color: #333;
-        }
+ }

@@ -10,22 +10,22 @@
      flex-direction: row;
     transition: transform 0.3s ease-in-out;
     padding: 20px;
-    gap: 20px; /* Spacing between content and image */
+    gap: 20px;
 }
 
 .blog-thumbnail {
     width: 200px;
-    height: 150px; /* Adjust height to maintain aspect ratio */
+    height: 150px;
     object-fit: cover;
     border-left: 4px solid #ddd;
     border-right: none;
-    flex-shrink: 0; /* Prevents image from shrinking */
+    flex-shrink: 0;
 }
 
 .blog-content {
-    flex: 1; /* Takes up remaining space */
+    flex: 1;
     text-align: left;
-    min-width: 50%; /* Prevents content from shrinking too much */
+    min-width: 50%;
 }
 
 .blog-title {

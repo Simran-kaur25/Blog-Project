@@ -10,11 +10,16 @@ import org.apache.sling.models.annotations.injectorspecific.ScriptVariable;
         adapters = AboutModel.class,
         defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class AboutModelImpl implements AboutModel{
+
+    // Injecting the current page
     @ScriptVariable
     private Page currentPage;
 
     @Override
     public String getPageDescription() {
+
+        // Checks if the current page is available and returns its description.
+        // If no description is found, a default message is returned.
         return (currentPage != null) ? currentPage.getDescription() : "No description available.";
     }
 }

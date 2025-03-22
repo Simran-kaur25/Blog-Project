@@ -8,13 +8,14 @@
     padding-bottom: 20px;
    }
 
-/* Hover for Back to Top */
+
 .back-to-top a:hover {
-    color: #333; /* Change to a darker shade on hover */
+    color: #333;
     text-decoration: none;
 }
 
-/* Footer Section */
+
+
 .footer-section {
     display: flex;
     flex-direction: column;
@@ -24,38 +25,38 @@
     padding-top: 20px;
 }
 
-/* Footer Links */
+
 .footer-links {
-    display: flex;       /* Arrange items in a row */
-    gap: 20px;           /* Space between links */
-    padding: 10px 0;     /* Adjust vertical padding as needed */
+    display: flex;
+    gap: 20px;
+    padding: 10px 0;
     list-style: none;
-    margin: 0;           /* Remove default margins */
+    margin: 0;
 }
 
 .footer-links li {
-    display: inline-block; /* Ensure each item stays inline */
-    margin: 0;             /* Remove margin from list items */
+    display: inline-block;
+    margin: 0;
 }
 
 .footer-links a {
-    text-decoration: none; /* Remove underline */
-    padding: 0;            /* Remove any extra padding */
+    text-decoration: none;
+    padding: 0;
 }
 
-/* Hover for Footer Links */
+
 .footer-links a:hover {
-    color: #333; /* Change to a darker shade on hover */
+    color: #333;
     text-decoration: none;
 }
 
-/* Copyright Text */
+
 .footer-copyright {
-    margin: 0;             /* Remove any margin */
+    margin: 0;
     padding-bottom: 10px;
 }
 
 .footer-copyright p {
-    margin: 0;             /* Ensure no extra spacing on paragraph */
-    color: black;          /* Set copyright text color to black */
+    margin: 0;
+    color: black;
 }

@@ -27,9 +27,11 @@ import java.util.Date;
 public class HeadingModelImpl implements HeadingModel {
 
 
+    // Injecting Page Manager to work with pages
     @ScriptVariable
     private PageManager pageManager;
 
+    // Resource resolver to interact with the JCR
     @SlingObject
     private ResourceResolver resourceResolver;
 
@@ -42,7 +44,8 @@ public class HeadingModelImpl implements HeadingModel {
 
     @PostConstruct
     protected void init() {
-        // Fetch current page
+
+        // Fetch the current page using the PageManager
         Page currentPage = pageManager.getContainingPage(request.getResource());
         if (currentPage != null) {
             this.title = currentPage.getTitle();
@@ -58,13 +61,18 @@ public class HeadingModelImpl implements HeadingModel {
 
     private String getLoggedInUserName() {
         try {
+            // Get the session associated with the current resource resolver
             Session session = resourceResolver.adaptTo(Session.class);
             if (session != null) {
                 String userId = session.getUserID();
                 UserPropertiesManager upm = resourceResolver.adaptTo(UserPropertiesManager.class);
+
+                // Fetch the user properties
                 if (upm != null) {
                     UserProperties userProperties = upm.getUserProperties(userId, UserPropertiesService.PROFILE_PATH);
+
                     if (userProperties != null) {
+                        // Return the full name or the user ID if full name is not available
                         String fullName = userProperties.getProperty("profile/fullName");
                         return (fullName != null && !fullName.isEmpty()) ? fullName : userId;
                     }

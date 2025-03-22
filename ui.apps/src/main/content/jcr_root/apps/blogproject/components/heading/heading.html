@@ -1,4 +1,12 @@
+<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html"/>
+<!-- Include the CSS for the Heading component -->
+<sly data-sly-call="${clientLib.css @ categories='clientlib.heading'}"/>
+
 <div class="blog-meta" data-sly-use.pageModel="com.blog.demo.core.models.HeadingModel">
+
+        <!-- Display the page title from the HeadingModel -->
         <h1>${pageModel.pageTitle}</h1>
+
+        <!-- Display the formatted publish date and author name from the HeadingModel -->
         <p> ${pageModel.publishDate} by <span>${pageModel.authorName}</span></p>
 </div>

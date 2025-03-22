@@ -1,16 +1,19 @@
-<header id="header" data-sly-use.headerModel="com.blog.demo.core.models.HeaderModel"
-        data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html">
+<!-- Including client library for the header's CSS -->
+<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html"></sly>
+<sly data-sly-call="${clientLib.css @ categories='clientlib.header'}"></sly>
 
-    <!-- Include CSS -->
-    <sly data-sly-call="${clientLib.css @ categories='clientlib.header'}"></sly>
-
+<!-- Header Section -->
+<header id="header" data-sly-use.headerModel="com.blog.demo.core.models.HeaderModel">
     <div class="logo">
+        <!-- Displaying the logo image -->
         <img src="${headerModel.logoPath @ context='uri'}" alt="Logo">
+        <!-- Displaying the Website Name -->
         <h2>${headerModel.websiteName}</h2>
     </div>
 
     <nav>
         <ul class="navbar" data-sly-list.menuItem="${headerModel.menuItems}">
+            <!-- Rendering menu items, only if "hideProp" is not "Default" -->
             <sly data-sly-test="${menuItem.hideProp == 'Default'}">
                 <li>
                     <a href="${menuItem.Link @ context='uri'}">${menuItem.Title}</a>

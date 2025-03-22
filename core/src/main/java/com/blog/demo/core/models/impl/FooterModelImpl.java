@@ -20,16 +20,16 @@ import java.util.Map;
         defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class FooterModelImpl implements FooterModel {
 
-    @ValueMapValue
-    private String backToTopLink;
-
+    // Injecting copyrightText property from the current resource
     @ValueMapValue
     private String copyrightText;
 
+    // Injecting the current component resource
     @SlingObject
     private Resource componentResource;
 
 
+    // Getter method to retrieve copyrightText
     @Override
     public String getCopyrightText() {
         return copyrightText;
@@ -37,12 +37,18 @@ public class FooterModelImpl implements FooterModel {
 
     @Override
     public List<Map<String, String>> getFooterLinks() {
+        // List to hold the Footer Links
         List<Map<String, String>> footerLinksList = new ArrayList<>();
+
+        // Retrieve the 'actions' child resource under the current component
         Resource linksResource = componentResource.getChild("actions");
 
         if (linksResource != null) {
             for (Resource item : linksResource.getChildren()) {
+
                 Map<String, String> linkMap = new HashMap<>();
+
+                // Get the properties of the current child node
                 ValueMap valueMap = item.getValueMap();
 
                 String linkText = valueMap.get("linkText", String.class);
