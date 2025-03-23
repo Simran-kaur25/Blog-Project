@@ -1,0 +1,9 @@
+.cmp-image{
+	display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+.cmp-image__image{
+	width:2000px;
+    height:430px;
+}

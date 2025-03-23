@@ -86,7 +86,7 @@ public class PublishedBlogsModelImpl implements PublishedBlogsModel {
 
             String title = blogPage.getTitle();
             String description = blogPage.getProperties().get("jcr:description", String.class);
-            String image = getImagePath(blogPage); // used Utils class
+            String image = getImagePath(request,blogPage); // used Utils class
             String link = blogPage.getPath() + ".html";
             String date = getFormattedDate(blogPage);
 

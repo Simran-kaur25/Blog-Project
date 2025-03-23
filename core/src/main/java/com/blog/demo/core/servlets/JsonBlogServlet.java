@@ -29,7 +29,7 @@ import java.util.Iterator;
         "sling.servlet.extensions=" + "json"
 })
 public class JsonBlogServlet extends SlingSafeMethodsServlet {
-    private static final String DEFAULT_IMAGE = "/content/dam/default.jpg";
+
 
     @Override
     protected void doGet(@Nonnull final SlingHttpServletRequest request, @Nonnull final SlingHttpServletResponse response) throws IOException {
@@ -67,7 +67,7 @@ public class JsonBlogServlet extends SlingSafeMethodsServlet {
                     blogObject.addProperty("description", childPage.getProperties().get("jcr:description", "No Description"));
                     blogObject.addProperty("date", childPage.getProperties().get("jcr:created", String.class));
                     blogObject.addProperty("link", childPage.getPath() + ".html");
-                    blogObject.addProperty("image", Utils.getImagePath(childPage)); // used Utils class
+                    blogObject.addProperty("image", Utils.getImagePath(request,childPage)); // used Utils class
 
                     // Add the blog object to the JSON array
                     blogArray.add(blogObject);
