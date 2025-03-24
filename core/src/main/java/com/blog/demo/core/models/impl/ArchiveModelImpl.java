@@ -21,7 +21,7 @@ public class ArchiveModelImpl implements ArchiveModel {
     @SlingObject
     private Resource componentResource;
 
-    private static final String PUBLISHED_BLOG_PAGE_URL = "/content/blogproject/published-blog-page.html";
+//    private static final String PUBLISHED_BLOG_PAGE_URL = "/content/blogproject/published-blog-page.html";
 
     @Override
     public List<Map<String, String>> getArchivedBlogs() {
@@ -47,7 +47,7 @@ public class ArchiveModelImpl implements ArchiveModel {
                     String monthUrl = urlFormatter.format(createdDate.getTime()); // "03-2025"
 
                     // Construct Archive Page Link (Filtering by month)
-                    String archivePageLink = PUBLISHED_BLOG_PAGE_URL + "?month=" + monthUrl;
+                    String archivePageLink = /* PUBLISHED_BLOG_PAGE_URL */ blogPagePath+ "?month=" + monthUrl;
 
                     // Store unique month entries
                     if (uniqueMonths.add(monthUrl)) {

@@ -17,6 +17,7 @@ public class Utils {
     private static final Logger LOG = LoggerFactory.getLogger(PublishedBlogsModelImpl.class);
     private static final String DEFAULT_IMAGE = "/content/dam/default.jpg";
 
+
     public static String getImagePath(SlingHttpServletRequest request, Page page) {
         String ImagePath = page.getPath() + "/jcr:content/cq:featuredimage/file/jcr:content";
         ResourceResolver resolver = request.getResourceResolver();

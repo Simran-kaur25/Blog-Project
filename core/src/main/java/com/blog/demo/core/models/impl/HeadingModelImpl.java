@@ -14,6 +14,7 @@ import org.apache.sling.models.annotations.injectorspecific.ScriptVariable;
 import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
+import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
 import javax.annotation.PostConstruct;
 import javax.jcr.Session;
@@ -42,6 +43,9 @@ public class HeadingModelImpl implements HeadingModel {
     private String author;
     private String date;
 
+    @ValueMapValue(name ="jcr:createdBy")
+    private String userId;
+
     @PostConstruct
     protected void init() {
 
@@ -61,21 +65,13 @@ public class HeadingModelImpl implements HeadingModel {
 
     private String getLoggedInUserName() {
         try {
-            // Get the session associated with the current resource resolver
-            Session session = resourceResolver.adaptTo(Session.class);
-            if (session != null) {
-                String userId = session.getUserID();
-                UserPropertiesManager upm = resourceResolver.adaptTo(UserPropertiesManager.class);
-
-                // Fetch the user properties
-                if (upm != null) {
-                    UserProperties userProperties = upm.getUserProperties(userId, UserPropertiesService.PROFILE_PATH);
-
-                    if (userProperties != null) {
-                        // Return the full name or the user ID if full name is not available
-                        String fullName = userProperties.getProperty("profile/fullName");
-                        return (fullName != null && !fullName.isEmpty()) ? fullName : userId;
-                    }
+            UserPropertiesManager upm = resourceResolver.adaptTo(UserPropertiesManager.class);
+            if (upm != null) {
+                UserProperties userProperties = upm.getUserProperties(userId, UserPropertiesService.PROFILE_PATH);
+                if (userProperties != null) {
+                    // Fetch full name, if available; otherwise, fallback to userId
+                    String fullName = userProperties.getDisplayName();
+                    return (fullName != null && !fullName.isEmpty()) ? fullName : userId;
                 }
             }
         } catch (Exception e) {
